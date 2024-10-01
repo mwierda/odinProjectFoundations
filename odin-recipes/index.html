@@ -4,12 +4,70 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
   <h1>Odin Recipes</h1>
-  <ul>
-    <li><a href="./recipes/lukeSpecial.html">Luke Special</a></li>
-    <li><a href="./recipes/smoothie.html">Smoothie</a></li>
-  </ul>
+  <div class="navigation">
+    <a href="./recipes/lukeSpecial.html">Luke Special</a>
+    <a href="./recipes/lukeSpecial.html">Luke Special</a>
+    <a href="./recipes/lukeSpecial.html">Luke Special</a>
+    <a href="./recipes/smoothie.html">Smoothie</a>
+    <a href="./recipes/smoothie.html">Smoothie</a>
+    <a href="./recipes/smoothie.html">Smoothie</a>
+    <a href="./recipes/smoothie.html">Smoothie</a>
+  </div>
+
+  <h2>Flexbox Shenanigans</h2>
+  <div class="flexy">
+    <p class="flexy-item">Nav bar has to be set to max-width 520 for columns cuz thats the min size for my browser</p>
+    <p class="flexy-item">These aren't set to wrap so they should just squish together. But I think I should make them wrap</p>
+    <p class="flexy-item">Flexbox is good for components and small stuff like this since it's 1 dimensional (just a row)</p>
+    <p class="flexy-item">Okay they will wrap now, but window can't get small enough on pc i think.</p>
+    <p class="flexy-item">Using a red outline so I know where the borders are.</p>
+  </div>
+
+  <h2>Fake Login</h2>
+  <div class="display-flex">
+    <p>Default 'Flow' layout algorithm is used to create documents, which is why headers are
+      blocks and text and links are inline. Whereas flexbox was made to arrange items in rows or columns
+      and give large amounts of control over the distribution and alignment of them. Grow or shrink,
+      extra space distributed, etc. Flexibility is the goal.
+    </p>
+    <p class="special-display-paragraph">Apparently grid is now common in all browsers and is also great. But flexbox is dynamic and
+      fluid, which can be useful in certain cases. Depends on the kind of site you want.
+    </p>
+  </div>
+  <div class="single-paragraph">
+    <p>Okay I can't make my window small enough but you can change the width of the login-container div
+    and that will show how it becomes vertical.
+    </p>
+  </div>
+ 
+  <form class="login-container" onsubmit="event.preventDefault()">
+    <label class="name">Name:<input type="text" placeholder="Mac" /></label>
+    <label class="email">Email:<input type="email" placeholder="mac@email.email" /></label>
+    <button class="login-button">Submit</button>
+  </form>
+
+  <div class="super-wide">hehe supa long</div>
+  <div class="display-flex">
+    <div class="super-wide">:( short</div>
+    <p class="super-wide">Is because this is a flex item and width is a suggestion</p>
+    <p class="super-wide">idk why the first one is super long though. div not para?</p>
+    <p class="super-wide">Yeah, if i use 'p' tag it's more normal. Not sure how to change.</p>
+    <p class="super-wide">Well, change without changing my default display-flex class</p>
+    <p class="super-wide">Ah, just had to add 'flex: 1' to the super-wide class. So all the items
+      will grow or shrink evenly, but start from a width of 0 by default. I think that if flex
+      isn't defined or basis is 'auto', then the first items gets to try to get as closer to
+      5000px as it can, and the others will shrink as necessary. So the first item gets prio for
+      some reason, I guess cuz it's first.
+    </p>
+  </div>
+
+  <p>For flex row, basis = width. for column, flex-basis = height.</p>
+
+
+
 </body>
 </html>

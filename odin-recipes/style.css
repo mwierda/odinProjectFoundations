@@ -1,0 +1,165 @@
+/** Can consider doing:
+  box-sizing: border-box;
+  in the global selector to make using the box model easier
+*/
+* {
+  box-sizing: border-box;
+  margin: 0 .5%;
+}
+
+body {
+  margin: 1% .5%;
+}
+
+.navigation {
+  display: flex;
+  justify-content: flex-end;
+  flex-flow: row wrap;
+  background-color: aqua;
+  outline: 1px solid black;
+  border-radius: 2px;
+  padding: 5px;
+}
+
+@media all and (max-width: 800px) {
+  .navigation {
+    justify-content: space-around;
+  }
+}
+
+@media all and (max-width: 530px) {
+  .navigation {
+    flex-direction: column;
+  }
+}
+
+.navigation a {
+  font-size: 22px;
+  color: rgb(78, 25, 9);
+  font-weight: bold;
+}
+
+p {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.single-paragraph {
+  width: 20%;
+}
+
+ol, ul {
+  font-size: 18px;
+  font-family: sans-serif;
+}
+
+ol {
+  color: red;
+}
+
+ul {
+  color: purple;
+}
+
+li {
+  padding: 5px 0px;
+}
+
+h1 {
+  color: green;
+  margin-bottom: 1%;
+}
+
+h2 {
+  color: blue;
+  background-color: grey;
+  margin: 1% .5%;
+  border-radius: 2px;
+  padding: 1px;
+}
+
+img {
+  height: auto;
+  width: 310;
+  padding: 30px;
+  border: 30px solid black;
+}
+
+.description {
+  color: yellow;
+  background-color: #000000;
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.note {
+  font-size: 14px;
+}
+
+.nav {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  margin: .5% .5%;
+}
+
+.flexy {
+  outline: solid 1px red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+.flexy-item {
+  outline: solid 1px red;
+  padding: 1%;
+  flex: 1;
+}
+
+.login-container {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 200px;
+  margin: 1%;
+}
+
+.name {
+  flex-grow: 1;
+  flex-basis: 160px;
+}
+
+.email {
+  flex-grow: 3;
+  flex-basis: 200px;
+}
+
+.login-button {
+  flex-grow: 1;
+  flex-basis: 80px;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.display-flex p {
+  width: 20%;
+  flex: initial;
+}
+
+.display-flex .special-display-paragraph {
+  width: 30%;
+  align-self: flex-start;
+}
+
+.super-wide {
+  width: 5000px;
+  background-color: blueviolet;
+  outline: solid black 1px;
+  margin: 2px;
+  flex: 1;
+}
