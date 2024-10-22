@@ -1,12 +1,44 @@
 body {
-  margin: 1% 5%;
   font-family: sans-serif;
+  background-color: rgb(34, 34, 116);
+  color: white;
+  margin: 0;
+}
+
+body * {
+  padding: 1%;
+  margin: 0;
 }
 
 nav {
-  margin-top: 2%;
   display: flex;
   gap: 16px;
+}
+
+.nav {
+  background-color: navy;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav a {
+  background-color: rgb(56, 56, 211);
+  color: white;
+  margin: .5%;
+}
+
+.nav a:hover {
+  background-color: rgb(47, 47, 172);
+}
+
+h1 {
+  background-color: navy;
+}
+
+h3 {
+  background-color: cornflowerblue;
 }
 
 a {
@@ -19,6 +51,18 @@ a {
   font-weight: bold;
 }
 
+a:hover {
+  background-color: rgb(160, 160, 160);
+}
+
 p {
-  margin-top: 2%
+  background-color: rgb(74, 74, 139);
+  border-radius: 16px;
+  outline: solid rgb(74, 74, 139) 1px;
+}
+
+.about-paragraphs-container {
+  display: flex;
+  gap: 16px;
+  justify-content: space-evenly;
 }
