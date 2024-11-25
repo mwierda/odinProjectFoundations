@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css" />
+  <title>Rock, Paper, Scissors</title>
+</head>
+<body>
+  <div class="nav">
+    <h1>Rock, Paper, Scissors</h1>
+    <a href="./index.html">
+      <h2>Back</h2>
+    </a>
+  </div>
+
+  <div class="rps-buttons">
+    <button class="rpsRockButton" value="rock" onclick="playRPS(value)">Rock</button>
+    <button class="rpsPaperButton" value="paper" onclick="playRPS(value)">Paper</button>
+    <button class="rpsScissorsButton" value="scissors" onclick="playRPS(value)">Scissors</button>
+  </div>
+  <div>
+    <p class="rps-winner"></p>
+  </div>
+  
+  <script>
+
+    const determineWinner = (playerChoice, computerChoice) => {
+      let result = "";
+
+      if (playerChoice === "rock") {
+        if (computerChoice === "rock") {
+          result = "Tie!";
+        } else if (computerChoice === "paper") {
+          result = "You lose!";
+        } else {
+          result = "You win!";
+        }
+      }
+      else if (playerChoice === "paper") {
+        if (computerChoice === "rock") {
+          result = "You win!";
+        } else if (computerChoice === "paper") {
+          result = "Tie!";
+        } else {
+          result = "You lose!";
+        }
+      }
+      else {
+        if (computerChoice === "rock") {
+          result = "You lose!";
+        } else if (computerChoice === "paper") {
+          result = "You win!";
+        } else {
+          result = "Tie!";
+        }
+      }
+      
+      document.querySelector(".rps-winner").innerHTML = `You chose ${playerChoice}. Computer chose ${computerChoice}. ${result}`;
+    }
+    
+    const playRPS = (playerChoice) => {
+      let computerChoice = Math.random();
+
+      if (computerChoice <= 0.33) {
+        determineWinner(playerChoice, "rock");
+      } else if (computerChoice > 0.33 && computerChoice <= 0.66) {
+        determineWinner(playerChoice, "paper");
+      } else {
+        determineWinner(playerChoice, "scissors");
+      }
+    }
+    
+  </script>
+</body>
+</html>

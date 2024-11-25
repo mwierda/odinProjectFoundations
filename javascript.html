@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css" />
+  <title>JavaScript Foundations</title>
+</head>
+<body>
+  <div class="nav">
+    <h1>JavaScript Foundations</h1>
+    <a href="./index.html">
+      <h2>Back</h2>
+    </a>
+  </div>
+
+  <div>
+    <button class="greetingButton">Press me</button>
+  </div>
+  <div id="greeting"></div>
+  <div class="weather-selector-div">
+    <label for="weatherSelector">Choose the weather: </label>
+    <select id="weatherSelector">
+      <option value="">Pick one</option>
+      <option value="clear">Clear</option>
+      <option value="rainy">Rainy</option>
+      <option value="snowy">Snowy</option>
+    </select>
+    <p class="weatherDescription"></p>
+  </div>
+
+  <div>
+    <button class="fizzBuzzButton">Fizz Buzz!</button>
+  </div>
+
+  <script>
+    console.log("Hello world!");
+    const name = "john";
+    let surname = "Doe";
+    console.log(name);
+    console.log(surname);
+    console.log((3 + 2) - 76 * (1 + !1));
+
+    // Greeter with name prompt
+    const greetingButton = document.querySelector(".greetingButton");
+
+    const greet = () => {
+      const name = prompt("What is your name?") || "Secret Agent";
+      const greetingDiv = document.querySelector("#greeting");
+      // note: this will only run if devtools is open! which is cool
+      debugger;
+      greetingDiv.textContent = `Hello ${name}, nice to see you!`;
+    }
+
+    greetingButton.addEventListener("click", greet);
+
+    // Weather description select with zero content (hidden) paragraph if none
+    const weatherSelector = document.querySelector("#weatherSelector");
+    const weatherDescription = document.querySelector(".weatherDescription");
+
+    const weatherChangeFunction = () => {
+      const selectedWeather = weatherSelector.value;
+
+      switch (selectedWeather) {
+        case "clear":
+          weatherDescription.textContent = "It's a clear day!";
+          break;
+        case "rainy":
+          weatherDescription.textContent = "Raining, time to stay inside...";
+          break;
+        case "snowy":
+          weatherDescription.textContent = "Maybe we can go sledding?";
+          break;
+        default:
+          weatherDescription.textContent = "";
+      }
+    }
+
+    weatherSelector.addEventListener("change", weatherChangeFunction);
+
+    const favoriteAnimal = (animal) => {
+      return animal + " is my favorite animal!";
+    }
+
+    const add7 = (num) => {
+      return num + 7;
+    }
+
+    const multiply = (num1, num2) => {
+      return num1 * num2;
+    }
+
+    const capitalize = (string) => {
+      return string[0].toUpperCase() + string.slice(1);
+    }
+
+    const lastLetter = (string) => {
+      return string.slice(-1);
+    }
+
+    console.log(favoriteAnimal("Polar bear"));
+    console.log(add7(5));
+    console.log(multiply(6, 6));
+    console.log(capitalize("arcane"));
+    console.log(lastLetter("arcane"));
+
+    // Fizz buzz in console button click
+    const fizzBuzzButton = document.querySelector(".fizzBuzzButton");
+
+    const fizzBuzz = () => {
+      const inputNumber = prompt("Pick a number!");
+      if (isNaN(inputNumber)) {
+        console.log("You need to input a number!");
+        return;
+      }
+
+      for (let i = 1; i <= inputNumber; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+          console.log("FizzBuzz!");
+        } else if (i % 3 === 0) {
+          console.log("Fizz");
+        } else if (i % 5 === 0) {
+          console.log("Buzz");
+        } else {
+          console.log(i);
+        }
+      }
+    }
+
+    fizzBuzzButton.addEventListener("click", fizzBuzz);
+
+    // add foo param to fix
+    const debuggerKnowledgeCheck = () => {
+      console.log(foo);
+    }
+
+    debuggerKnowledgeCheck();
+
+  </script>
+
+  
+</body>
+</html>

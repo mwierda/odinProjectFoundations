@@ -1,5 +1,8 @@
 # odinProjectFoundations
+
 Odin Project Foundations path
+
+View online here: <https://mwierda.github.io/odinProjectFoundations/index.html>
 
 Following the theodinproject.com Foundations lesson to refresh my fundamental web development skills, intending to eventually move into the full stack javascript lesson. I've mostly used React and built using the create-react-app command so it'll be nice to build from the ground up (maybe. I'm doing it for now, anyway).
 
