@@ -1,7 +1,10 @@
 const { createServer } = require("node:http");
-const url = require("url");
 const EventEmitter = require("node:events");
 const fs = require("node:fs");
+
+require("dotenv").config(); // Reads .env, parses it, adds vars to process.env, returns object with keys or error
+// dotenvx exists, which is above but better w/ encryption and multi-language support
+console.log(process.env.NODE_ENV); // Access env variables thru process.env
 
 const myDateTime = require("./myDateTime.js");
 
@@ -17,6 +20,7 @@ eventEmitter.on("start", (start, end) => {
 
 eventEmitter.emit("start", 23, 37);
 
+// Writes current dateTime to currentDateTime txt file
 writeToNotesFile = async () => {
   try {
     await fs.writeFileSync("./myCurrentDateTime.txt", myDateTime());
@@ -44,10 +48,8 @@ server.on("request", (request, response) => {
   writeToNotesFile();
   console.log(request.url);
 
-  // const url = new URL(request.url, `http://${hostname}:${port}/`);
-
+  // Serves different html pages based on request
   if (request.url === "/index") {
-    console.log("it is index");
     fs.readFile("./index.html", (err, data) => {
       if (err) {
         console.log(err)
