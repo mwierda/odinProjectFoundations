@@ -1,8 +1,9 @@
 const { createServer } = require("node:http");
+const url = require("url");
 const EventEmitter = require("node:events");
 const fs = require("node:fs");
 
-const myDateTime = require("./myDateTime");
+const myDateTime = require("./myDateTime.js");
 
 const hostname = "127.0.0.1";
 const port = 3000;
@@ -18,7 +19,7 @@ eventEmitter.emit("start", 23, 37);
 
 writeToNotesFile = async () => {
   try {
-    await fs.writeFileSync("./notes.txt", myDateTime);
+    await fs.writeFileSync("./myCurrentDateTime.txt", myDateTime());
   } catch (err) {
     console.log(err);
   }
@@ -39,19 +40,34 @@ writeToNotesFile = async () => {
 // Note: will only update the page on page refresh, since it doesn't return on server creation
 //        Shorter version will update on change if using --watch
 const server = createServer();
-server.on("request", (request, res) => {
+server.on("request", (request, response) => {
   writeToNotesFile();
   console.log(request.url);
 
-  fs.readFile("./index.html", (err,data) => {
-    if (err) {
-      console.log(err)
-      return;
-    }
-    res.writeHead(200, { "Content-Type": "text/html" });
-    res.write(data);
-    res.end();
-  })
+  // const url = new URL(request.url, `http://${hostname}:${port}/`);
+
+  if (request.url === "/index") {
+    console.log("it is index");
+    fs.readFile("./index.html", (err, data) => {
+      if (err) {
+        console.log(err)
+        return;
+      }
+      response.writeHead(200, { "Content-Type": "text/html" });
+      response.write(data);
+      response.end();
+    })
+  } else if (request.url === "/about") {
+    fs.readFile("./about.html", (err, data) => {
+      if (err) {
+        console.log(err)
+        return;
+      }
+      response.writeHead(200, { "Content-Type": "text/html" });
+      response.write(data);
+      response.end();
+    })
+  }
 });
 
 // Shorter, simpler version, plain text response

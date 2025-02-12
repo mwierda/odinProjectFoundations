@@ -1,3 +1,5 @@
-exports.myDateTime = () => {
-  return Date();
+const myDateTime = () => {
+  return Date().toString();
 }
+
+module.exports = myDateTime;
